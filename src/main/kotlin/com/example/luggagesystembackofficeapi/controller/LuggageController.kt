@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
+import org.springframework.web.bind.annotation.CrossOrigin
 
 @RestController
 @RequestMapping("backoffice/api/v1/luggage")
+@CrossOrigin("http://localhost:3000")
 class LuggageController(private val luggageService: LuggageService) {
 
     @GetMapping("/luggagebyId")

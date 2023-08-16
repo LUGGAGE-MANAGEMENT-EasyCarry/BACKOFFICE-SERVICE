@@ -1,1 +1,32 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: backoffice-api
+kafka:
+  topics:
+    luggageCreated: luggageCreated
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8671/eureka/
+
+luggage-system-luggage-api:
+  baseUrl: http://localhost:7074
+  connectTimeout: PT10S
+  readTimeout: PT15S
+
+
+luggage-system-flight-api:
+    baseUrl: http://localhost:8083
+    connectTimeout: PT10S
+    readTimeout: PT15S
+
+luggage-system-customer-api:
+   baseUrl: http://localhost:8081
+   connectTimeout: PT10S
+   readTimeout: PT15S
+
+
 

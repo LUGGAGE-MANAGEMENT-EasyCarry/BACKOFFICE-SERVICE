@@ -14,10 +14,10 @@ import java.util.UUID
 @Component
 class LuggageAPI(private val luggageClient: WebClient) {
 
-    suspend fun getLuggages(): Flow<LuggageResponse> {
+    suspend fun getLuggages(): List<LuggageResponse> {
         return luggageClient.get().uri {
             it.path("/api/v1/luggage").build()
-        }.retrieve().bodyToFlow()
+        }.retrieve().awaitBody()
     }
 
     suspend fun createLuggage(luggageRequest: LuggageRequest): LuggageResponse {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class FlightService(private val flightAPI: FlightAPI) {
-    suspend fun getFlights(): Flow<FlightResponse> {
+    suspend fun getFlights(): List<FlightResponse> {
         return flightAPI.getFlights()
     }
 

@@ -27,7 +27,7 @@ class LuggageController(private val luggageService: LuggageService) {
     }
 
     @GetMapping
-    suspend fun getLuggages(): Flow<LuggageResponse> {
+    suspend fun getLuggages(): List<LuggageResponse> {
         return luggageService.getLuggages()
     }
 

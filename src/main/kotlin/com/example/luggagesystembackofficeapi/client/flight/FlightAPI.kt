@@ -19,7 +19,7 @@ class FlightAPI( private val flightClient: WebClient) {
         ).retrieve().awaitBody()
     }
 
-    suspend fun getFlights() : Flow<FlightResponse> {
+    suspend fun getFlights() : List<FlightResponse> {
         return flightClient.get().uri { it.path("/api/flights").build() }.retrieve().awaitBody()
     }
 

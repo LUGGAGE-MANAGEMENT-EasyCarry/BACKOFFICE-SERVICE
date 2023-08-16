@@ -18,7 +18,7 @@ class FlightController(private val flightService: FlightService) {
 
     @GetMapping
     suspend fun getFlights() : List<FlightResponse> {
-        return flightService.getFlights().toList()
+        return flightService.getFlights()
     }
 
     @PostMapping("/create")

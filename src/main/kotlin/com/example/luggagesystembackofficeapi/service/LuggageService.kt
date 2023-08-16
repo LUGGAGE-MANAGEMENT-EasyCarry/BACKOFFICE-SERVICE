@@ -14,7 +14,7 @@ class LuggageService(private val luggageAPI: LuggageAPI) {
         return luggageAPI.getLuggageByCustomerIdAndLuggageIdWithState(customerId, luggageId)
     }
 
-    suspend fun getLuggages(): Flow<LuggageResponse> {
+    suspend fun getLuggages(): List<LuggageResponse> {
         return luggageAPI.getLuggages()
     }
 

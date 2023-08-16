@@ -2,11 +2,10 @@ server:
   port: 8089
 
 spring:
+
   application:
     name: backoffice-api
-kafka:
-  topics:
-    luggageCreated: luggageCreated
+
 eureka:
   client:
     serviceUrl:

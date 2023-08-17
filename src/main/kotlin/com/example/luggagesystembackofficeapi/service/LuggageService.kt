@@ -3,8 +3,6 @@ package com.example.luggagesystembackofficeapi.service
 import com.example.luggagesystembackofficeapi.client.luggage.LuggageAPI
 import com.example.luggagesystembackofficeapi.client.luggage.LuggageRequest
 import com.example.luggagesystembackofficeapi.client.luggage.dto.response.LuggageResponse
-import com.example.luggagesystembackofficeapi.client.luggage.enums.State
-import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import java.util.UUID
 
@@ -28,7 +26,7 @@ class LuggageService(private val luggageAPI: LuggageAPI) {
 
     }
 
-    suspend fun updateLuggageForState(id: UUID, state: State): LuggageResponse {
+    suspend fun updateLuggageForState(id: UUID, state: String): LuggageResponse {
         return luggageAPI.updateLuggageForStateInfo(id, state)
     }
 }

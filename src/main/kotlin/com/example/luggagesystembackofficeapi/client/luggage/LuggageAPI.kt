@@ -1,8 +1,6 @@
 package com.example.luggagesystembackofficeapi.client.luggage
 
 import com.example.luggagesystembackofficeapi.client.luggage.dto.response.LuggageResponse
-import com.example.luggagesystembackofficeapi.client.luggage.enums.State
-import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
@@ -33,7 +31,7 @@ class LuggageAPI(private val luggageClient: WebClient) {
         return luggageClient.get().uri { it.path("api/v1/luggage/luggagebyId").build(customerId, luggageId) }.retrieve().awaitBody()
     }
 
-    suspend fun updateLuggageForStateInfo(@PathVariable id: UUID, @RequestParam state: State): LuggageResponse {
+    suspend fun updateLuggageForStateInfo(@PathVariable id: UUID, @RequestParam state: String): LuggageResponse {
         return luggageClient.patch().uri { it.path("api/v1/luggage/edit/status/{id}").queryParam("state",state).build(id) }.retrieve().awaitBody()
 
     }

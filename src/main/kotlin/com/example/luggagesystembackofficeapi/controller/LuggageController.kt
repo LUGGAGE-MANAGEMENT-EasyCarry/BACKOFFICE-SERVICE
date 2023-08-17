@@ -2,7 +2,6 @@ package com.example.luggagesystembackofficeapi.controller
 
 import com.example.luggagesystembackofficeapi.client.luggage.LuggageRequest
 import com.example.luggagesystembackofficeapi.client.luggage.dto.response.LuggageResponse
-import com.example.luggagesystembackofficeapi.client.luggage.enums.State
 import com.example.luggagesystembackofficeapi.service.LuggageService
 import kotlinx.coroutines.flow.Flow
 import org.springframework.web.bind.annotation.GetMapping
@@ -42,7 +41,7 @@ class LuggageController(private val luggageService: LuggageService) {
     }
 
     @PatchMapping("/edit/status/{id}")
-    suspend fun updateLuggageForStateInfo(@PathVariable id: UUID, @RequestParam state: State): LuggageResponse {
+    suspend fun updateLuggageForStateInfo(@PathVariable id: UUID, @RequestParam state: String): LuggageResponse {
         return luggageService.updateLuggageForState(id, state)
     }
 }
